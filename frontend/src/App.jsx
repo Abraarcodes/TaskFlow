@@ -17,7 +17,7 @@ function App() {
 
   useEffect(()=>{
     if(currentUser){
-      localStorage.setItem('currentUSer',JSON.stringify(currentUser));
+      localStorage.setItem('currentUser',JSON.stringify(currentUser));
     }else{
       localStorage.removeItem('currentUser')
     }
