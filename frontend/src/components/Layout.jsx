@@ -62,7 +62,7 @@ const Layout = ({onLogout,user}) => {
 
     //Statistic card
 
-    const StatCard = ({title,value,icon})=>{
+    const StatCard = ({title,value,icon})=>(
       <div className='p-2 sm:p-3 rounded-xl bg-white shadow-sm border border-purple-100 hover:shadow-md transition-all duration-300 hover:border-purple-100 group'>
         <div className='flex items-center gap-2'>
             <div className='p-1.5 rounded-lg bg-gradient-to-br from-fuchsia-500/10 to-purple-500/10 group-hover:from-fuchsia-500/20 group-hover:to-purple-500/20'>
@@ -76,7 +76,7 @@ const Layout = ({onLogout,user}) => {
             </div>
         </div>
       </div>
-    }
+    )
 
     //Loading
     if(loading) return(
@@ -97,6 +97,7 @@ const Layout = ({onLogout,user}) => {
         </div>
       </div>
     )
+    
   return (
     <div className='min-h-screen bg-gray-50'>
       <Navbar user={user} onLogout={onLogout}/>
