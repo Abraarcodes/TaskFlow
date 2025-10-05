@@ -97,10 +97,10 @@ export async function updateProfile(req,res){
     }
 
     try{
-        const exists = await User.findOne({email, id:{$ne : req.user.id }});
+        const exists = await User.findOne({email, _id:{$ne : req.user.id }});
 
         if(exists){
-            return res.status(409).message({success:false, message:"Email already in use by another account"})
+            return res.status(409).json({success:false, message:"Email already in use by another account"})
         }
 
         const user = await User.findByIdAndUpdate(
@@ -136,7 +136,7 @@ export async function updatePassword(req,res){
         if(!match){
             return res.status(401).json({success:false, message: "Current password incorrect"})
         }
-        user.password= bcrypt.hash(newPassword,10);
+        user.password =await bcrypt.hash(newPassword,10);
         await user.save();
         res.json({success: true, message: "Password changed"})
 
